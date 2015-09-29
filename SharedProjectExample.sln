@@ -5,6 +5,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Example.Shared", "Example.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.iOS", "Example.iOS\Example.iOS.csproj", "{71BFDC76-0394-4A5A-9300-FE907C30521E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.Android", "Example.Android\Example.Android.csproj", "{02F10AD1-B7A7-429C-8D93-AB5BE8DE08D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -13,6 +15,14 @@ Global
 		Debug|iPhone = Debug|iPhone
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02F10AD1-B7A7-429C-8D93-AB5BE8DE08D7}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{02F10AD1-B7A7-429C-8D93-AB5BE8DE08D7}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{02F10AD1-B7A7-429C-8D93-AB5BE8DE08D7}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{02F10AD1-B7A7-429C-8D93-AB5BE8DE08D7}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{02F10AD1-B7A7-429C-8D93-AB5BE8DE08D7}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{02F10AD1-B7A7-429C-8D93-AB5BE8DE08D7}.Release|iPhone.Build.0 = Release|Any CPU
+		{02F10AD1-B7A7-429C-8D93-AB5BE8DE08D7}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{02F10AD1-B7A7-429C-8D93-AB5BE8DE08D7}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{71BFDC76-0394-4A5A-9300-FE907C30521E}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{71BFDC76-0394-4A5A-9300-FE907C30521E}.Debug|iPhone.Build.0 = Debug|iPhone
 		{71BFDC76-0394-4A5A-9300-FE907C30521E}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator

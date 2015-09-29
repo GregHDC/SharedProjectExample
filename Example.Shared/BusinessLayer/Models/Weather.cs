@@ -15,9 +15,6 @@ namespace Example.Shared.BL.Models
 		{
 		}
 
-		[PrimaryKey, AutoIncrement]
-		public int ID { get; set; }
-
 		[JsonProperty ("temperature")]
 		public double Temperature { get; set; }
 
