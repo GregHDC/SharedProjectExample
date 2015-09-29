@@ -48,7 +48,7 @@ namespace Example.Shared.DL
 		public T GetItem<T> (int id) where T : IBusinessEntity, new()
 		{
 			lock (locker) {
-				return Table<T> ().FirstOrDefault (x => x.ID == id);
+				return	Table<T> ().Where (x => x.ID == id).FirstOrDefault ();
 			}
 		}
 

@@ -2,7 +2,6 @@
 using System.Net;
 using System.Threading.Tasks;
 using System.IO;
-using System.Json;
 using Example.Shared.Entities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -19,10 +18,9 @@ namespace Example.Shared
 		public async Task<Weather> FetchWeatherAsync (string uri)
 		{
 			var response = await GetRequest<Weather> (uri, null);
-		
-			var rootNode = (JObject)JsonConvert.DeserializeObject (response.ToString ());
-			var weather = rootNode.GetValue ("weatherObservation");
-			var result = JsonConvert.DeserializeObject<Weather> (weather.ToString ());
+
+			var weatherNode = JObject.Parse (response).SelectToken ("weatherObservation").ToString ();
+			var result = JsonConvert.DeserializeObject<Weather> (weatherNode);
 			return result;
 		}
 	}

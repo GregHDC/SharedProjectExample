@@ -86,7 +86,7 @@
         </member>
         <member name="M:Newtonsoft.Json.JsonReader.System#IDisposable#Dispose">
             <summary>
-            Performs application-defined SharedProjectExamples associated with freeing, releasing, or resetting unmanaged resources.
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
             </summary>
         </member>
         <member name="M:Newtonsoft.Json.JsonReader.Dispose(System.Boolean)">
@@ -5181,7 +5181,7 @@
             </summary>
             <param name="value">The object to serialize.</param>
             <returns>
-            A SharedProjectExample that represents the asynchronous serialize operation. The value of the <c>TResult</c> parameter contains a JSON string representation of the object.
+            A task that represents the asynchronous serialize operation. The value of the <c>TResult</c> parameter contains a JSON string representation of the object.
             </returns>
         </member>
         <member name="M:Newtonsoft.Json.JsonConvert.SerializeObjectAsync(System.Object,Newtonsoft.Json.Formatting)">
@@ -5192,7 +5192,7 @@
             <param name="value">The object to serialize.</param>
             <param name="formatting">Indicates how the output is formatted.</param>
             <returns>
-            A SharedProjectExample that represents the asynchronous serialize operation. The value of the <c>TResult</c> parameter contains a JSON string representation of the object.
+            A task that represents the asynchronous serialize operation. The value of the <c>TResult</c> parameter contains a JSON string representation of the object.
             </returns>
         </member>
         <member name="M:Newtonsoft.Json.JsonConvert.SerializeObjectAsync(System.Object,Newtonsoft.Json.Formatting,Newtonsoft.Json.JsonSerializerSettings)">
@@ -5205,7 +5205,7 @@
             <param name="settings">The <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/> used to serialize the object.
             If this is null, default serialization settings will be used.</param>
             <returns>
-            A SharedProjectExample that represents the asynchronous serialize operation. The value of the <c>TResult</c> parameter contains a JSON string representation of the object.
+            A task that represents the asynchronous serialize operation. The value of the <c>TResult</c> parameter contains a JSON string representation of the object.
             </returns>
         </member>
         <member name="M:Newtonsoft.Json.JsonConvert.DeserializeObject(System.String)">
@@ -5322,7 +5322,7 @@
             <typeparam name="T">The type of the object to deserialize to.</typeparam>
             <param name="value">The JSON to deserialize.</param>
             <returns>
-            A SharedProjectExample that represents the asynchronous deserialize operation. The value of the <c>TResult</c> parameter contains the deserialized object from the JSON string.
+            A task that represents the asynchronous deserialize operation. The value of the <c>TResult</c> parameter contains the deserialized object from the JSON string.
             </returns>
         </member>
         <member name="M:Newtonsoft.Json.JsonConvert.DeserializeObjectAsync``1(System.String,Newtonsoft.Json.JsonSerializerSettings)">
@@ -5337,7 +5337,7 @@
             If this is null, default serialization settings will be used.
             </param>
             <returns>
-            A SharedProjectExample that represents the asynchronous deserialize operation. The value of the <c>TResult</c> parameter contains the deserialized object from the JSON string.
+            A task that represents the asynchronous deserialize operation. The value of the <c>TResult</c> parameter contains the deserialized object from the JSON string.
             </returns>
         </member>
         <member name="M:Newtonsoft.Json.JsonConvert.DeserializeObjectAsync(System.String)">
@@ -5347,7 +5347,7 @@
             </summary>
             <param name="value">The JSON to deserialize.</param>
             <returns>
-            A SharedProjectExample that represents the asynchronous deserialize operation. The value of the <c>TResult</c> parameter contains the deserialized object from the JSON string.
+            A task that represents the asynchronous deserialize operation. The value of the <c>TResult</c> parameter contains the deserialized object from the JSON string.
             </returns>
         </member>
         <member name="M:Newtonsoft.Json.JsonConvert.DeserializeObjectAsync(System.String,System.Type,Newtonsoft.Json.JsonSerializerSettings)">
@@ -5362,7 +5362,7 @@
             If this is null, default serialization settings will be used.
             </param>
             <returns>
-            A SharedProjectExample that represents the asynchronous deserialize operation. The value of the <c>TResult</c> parameter contains the deserialized object from the JSON string.
+            A task that represents the asynchronous deserialize operation. The value of the <c>TResult</c> parameter contains the deserialized object from the JSON string.
             </returns>
         </member>
         <member name="M:Newtonsoft.Json.JsonConvert.PopulateObject(System.String,System.Object)">
@@ -5394,7 +5394,7 @@
             If this is null, default serialization settings will be used.
             </param>
             <returns>
-            A SharedProjectExample that represents the asynchronous populate operation.
+            A task that represents the asynchronous populate operation.
             </returns>
         </member>
         <member name="M:Newtonsoft.Json.JsonConvert.SerializeXmlNode(System.Xml.XmlNode)">

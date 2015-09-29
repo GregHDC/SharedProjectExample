@@ -28,5 +28,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)DataLayer\" />
     <Folder Include="$(MSBuildThisFileDirectory)DataAccessLayer\" />
     <Folder Include="$(MSBuildThisFileDirectory)Entities\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Entities\ResponseModels\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Entities\ViewModels\" />
   </ItemGroup>
 </Project>

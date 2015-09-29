@@ -1,5 +1,4 @@
 ﻿using System;
-
 using UIKit;
 using Example.Shared.BL.Managers;
 
@@ -27,8 +26,11 @@ namespace Template.iOS
 			var manager = new WeatherManager ();
 			var result = await manager.GetUpdatedWeather ("http://api.geonames.org/findNearByWeatherJSON?lat=-36.851193&lng=174.761510&username=demo");
 			//			var result = await manager.GetUpdatedWeather (" http://www.mocky.io/v2/5609f41a95e00ca50798127d");
-			WeatherInfoLabel.Text = result.ToString ();
-
+			if (result != null) {
+				WeatherInfoLabel.Text = result.ToString ();
+			} else {
+				WeatherInfoLabel.Text = "Error";
+			}
 		}
 
 		public override void DidReceiveMemoryWarning ()

@@ -3,7 +3,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
-using System.Json;
+using Example.Shared.Entities;
 
 /* Further implementation where required: 
  * Catch and handle non-200 range responses, you may want to differentiate the handling depends on the status code. 
@@ -21,7 +21,6 @@ using System.Json;
  * Timeout setting
  * Other types of requests such as POST or PUT etc.
  */
-using Example.Shared.Entities;
 
 
 namespace Example.Shared
@@ -32,8 +31,16 @@ namespace Example.Shared
 		{
 		}
 
-
-		public async Task<JsonValue> GetRequest<T> (string uri, string data)
+		/// <summary>
+		/// A GET request and return the json. 
+		/// Further implementation to consider:
+		/// 	- If the response is always the same format, you could pass in a generics, e.g. Task<T> instead of Task<JsonValue>
+		/// </summary>
+		/// <returns>The request.</returns>
+		/// <param name="uri">URI.</param>
+		/// <param name="data">Data.</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public async Task<string> GetRequest<T> (string uri, string data)
 		{
 			var request = (HttpWebRequest)WebRequest.Create (uri);
 			request.ContentType = "application/json";
@@ -43,14 +50,22 @@ namespace Example.Shared
 			using (WebResponse response = await request.GetResponseAsync ()) {
 				// Get a stream representation of the HTTP web response:
 				using (Stream stream = response.GetResponseStream ()) {
-					// Use this stream to build a JSON document object:
-					JsonValue jsonDoc = await Task.Run (() => JsonObject.Load (stream));
-					Console.Out.WriteLine ("Response: {0}", jsonDoc.ToString ());
+
+					var reader = new StreamReader (stream, System.Text.Encoding.Default);
+					string responseString = await reader.ReadToEndAsync ();
+
+					if (responseString != null && responseString.Length > 0) {
+						return responseString;
+
+					}// Use this stream to build a JSON document object:
+//					JsonValue jsonDoc = await Task.Run (() => JsonObject.Load (stream));
+//					Console.Out.WriteLine ("Response: {0}", jsonDoc.ToString ());
 
 
-					return jsonDoc;
+//					return jsonDoc;
 				}
 			}
+			return null;
 		}
 	}
 }

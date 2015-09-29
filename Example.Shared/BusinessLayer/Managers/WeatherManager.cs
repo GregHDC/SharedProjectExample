@@ -27,12 +27,10 @@ namespace Example.Shared.BL.Managers
 		{
 			var service = new WeatherService ();
 			var response = await service.FetchWeatherAsync (uri);
-
-			// You could choose to save async as well, and return the response object directly to the front-end
+//
+//			// You could choose to save async as well, and return the response object directly to the front-end
 			var savedId = Save (response);
-
-			// this is to demo how to return information from the database
-			return GetWeather (savedId);
+			return response;
 		}
 
 		#region Sync database operation examples

@@ -3273,7 +3273,7 @@
         <member name="M:NUnit.Framework.AsyncInvocationRegion.WaitForPendingOperationsToComplete(System.Object)">
             <summary>
             Waits for pending asynchronous operations to complete, if appropriate,
-            and returns a proper result of the invocation by unwrapping SharedProjectExample results
+            and returns a proper result of the invocation by unwrapping task results
             </summary>
             <param name="invocationResult">The raw result of the method invocation</param>
             <returns>The unwrapped result, if necessary</returns>
