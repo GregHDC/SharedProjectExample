@@ -4,14 +4,13 @@ using Example.Shared.BL;
 using System.Collections.Generic;
 using Example.Shared.DL.SQLite;
 using Example.Shared.BL.Contracts;
+using Example.Shared.BL.Models;
 
 /// <summary>
 /// Further implementation where required:
 /// <para/>Seed database - Add a .sqlite seed database if there's pre-configured data the app needs to use. For example, reference data.
 /// <para/>Database upgrade for new app versions, especially schema changes
 /// </summary>
-using Example.Shared.Entities;
-
 
 namespace Example.Shared.DL
 {

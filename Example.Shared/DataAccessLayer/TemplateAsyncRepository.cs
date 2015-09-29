@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using Example.Shared.BL;
 using Example.Shared.DL;
+using System.Threading.Tasks;
 
 /* 
  * Consider to separate to different data access classes if there are more database operations.
  * For example, WeatherDataService
  * 
  */
-using Example.Shared.Entities;
-using System.Threading.Tasks;
+using Example.Shared.BL.Models;
 
 namespace Example.Shared.DAL
 {

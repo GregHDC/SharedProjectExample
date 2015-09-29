@@ -3,7 +3,7 @@ using Example.Shared.DL.SQLite;
 using Newtonsoft.Json;
 using Example.iOS.BL.Contracts;
 
-namespace Example.Shared.Entities
+namespace Example.Shared.BL.Models
 {
 	/// <summary>
 	/// Represents weather info.

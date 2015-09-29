@@ -1,11 +1,11 @@
 using System;
 using System.Threading.Tasks;
 using Example.Shared.DAL;
-using Example.Shared.Entities;
 
 /* A facade for providing weather information. 
  * The current example demonstrates web service and database functions.
  */
+using Example.Shared.BL.Models;
 
 namespace Example.Shared.BL.Managers
 {
@@ -27,7 +27,7 @@ namespace Example.Shared.BL.Managers
 		{
 			var service = new WeatherService ();
 			var response = await service.FetchWeatherAsync (uri);
-//
+
 //			// You could choose to save async as well, and return the response object directly to the front-end
 			var savedId = Save (response);
 			return response;

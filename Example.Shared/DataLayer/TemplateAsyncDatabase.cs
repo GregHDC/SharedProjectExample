@@ -4,8 +4,8 @@ using Example.Shared.BL;
 using System.Collections.Generic;
 using Example.Shared.DL.SQLite;
 using Example.Shared.BL.Contracts;
-using Example.Shared.Entities;
 using System.Threading.Tasks;
+using Example.Shared.BL.Models;
 
 /// <summary>
 /// Further implementation where required:

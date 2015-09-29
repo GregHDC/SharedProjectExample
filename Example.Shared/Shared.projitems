@@ -18,17 +18,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)BusinessLayer\Managers\WeatherManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataAccessLayer\TemplateRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataLayer\TemplateDatabase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Entities\Weather.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataLayer\TemplateAsyncDatabase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataAccessLayer\TemplateAsyncRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BusinessLayer\Models\Weather.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)BusinessLayer\" />
     <Folder Include="$(MSBuildThisFileDirectory)ServiceLayer\" />
     <Folder Include="$(MSBuildThisFileDirectory)DataLayer\" />
     <Folder Include="$(MSBuildThisFileDirectory)DataAccessLayer\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Entities\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Entities\ResponseModels\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Entities\ViewModels\" />
+    <Folder Include="$(MSBuildThisFileDirectory)BusinessLayer\Models\" />
   </ItemGroup>
 </Project>

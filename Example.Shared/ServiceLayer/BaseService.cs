@@ -3,7 +3,6 @@ using System.Net;
 using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
-using Example.Shared.Entities;
 
 /* Further implementation where required: 
  * Catch and handle non-200 range responses, you may want to differentiate the handling depends on the status code. 

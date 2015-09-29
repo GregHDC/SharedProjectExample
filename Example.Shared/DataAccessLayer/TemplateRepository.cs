@@ -9,7 +9,7 @@ using Example.Shared.DL;
  * For example, WeatherDataService
  * 
  */
-using Example.Shared.Entities;
+using Example.Shared.BL.Models;
 
 namespace Example.Shared.DAL
 {

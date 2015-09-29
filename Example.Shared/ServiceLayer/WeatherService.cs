@@ -2,9 +2,9 @@
 using System.Net;
 using System.Threading.Tasks;
 using System.IO;
-using Example.Shared.Entities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Example.Shared.BL.Models;
 
 namespace Example.Shared
 {
