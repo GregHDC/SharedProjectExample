@@ -10,27 +10,28 @@ using Example.Shared.DL;
  * 
  */
 using Example.Shared.Entities;
+using System.Threading.Tasks;
 
 namespace Example.Shared.DAL
 {
-	public class TemplateRepository
+	public class TemplateAsyncRepository
 	{
-		TemplateDatabase db = null;
+		TemplateAsyncDatabase db = null;
 		protected static string dbLocation;
-		protected static TemplateRepository repo;
+		protected static TemplateAsyncRepository repo;
 
-		static TemplateRepository ()
+		static TemplateAsyncRepository ()
 		{
-			repo = new TemplateRepository ();
+			repo = new TemplateAsyncRepository ();
 		}
 
-		protected TemplateRepository ()
+		protected TemplateAsyncRepository ()
 		{
 			// set the db location
 			dbLocation = DatabaseFilePath;
 			
 			// instantiate the database	
-			db = new TemplateDatabase (dbLocation);
+			db = new TemplateAsyncDatabase (dbLocation);
 		}
 
 		public static string DatabaseFilePath {
@@ -54,19 +55,19 @@ namespace Example.Shared.DAL
 			}
 		}
 
-		public static Weather GetWeather (int id)
+		public static async Task<Weather> GetWeather (int id)
 		{
-			return repo.db.GetItem<Weather> (id);
+			return await repo.db.GetItem<Weather> (id);
 		}
 
-		public static int Save (Weather item)
+		public static async Task<int> Save (Weather item)
 		{
-			return repo.db.SaveItem<Weather> (item);
+			return await repo.db.SaveItem<Weather> (item);
 		}
 
-		public static int Delete (int id)
+		public static async Task<int> Delete (Weather item)
 		{
-			return repo.db.DeleteItem<Weather> (id);
+			return await repo.db.DeleteItem <Weather> (item);
 		}
 	}
 }

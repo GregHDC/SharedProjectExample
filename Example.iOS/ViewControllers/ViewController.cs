@@ -25,9 +25,9 @@ namespace Template.iOS
 		private async void ShowWeather ()
 		{
 			var manager = new WeatherManager ();
-//			var result = await manager.GetUpdatedWeather ("http://api.geonames.org/findNearByWeatherJSON?lat=43&lng=-2&username=demo");
-			var result = await manager.GetUpdatedWeather ("http://www.mocky.io/v2/5608b9f09665b9ad1169bafa");
-			WeatherInfoLabel.Text = result.WeatherCondition;
+			var result = await manager.GetUpdatedWeather ("http://api.geonames.org/findNearByWeatherJSON?lat=-36.851193&lng=174.761510&username=demo");
+			//			var result = await manager.GetUpdatedWeather (" http://www.mocky.io/v2/5609f41a95e00ca50798127d");
+			WeatherInfoLabel.Text = result.ToString ();
 
 		}
 

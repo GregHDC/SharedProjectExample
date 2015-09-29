@@ -4,14 +4,14 @@ using Example.Shared.BL;
 using System.Collections.Generic;
 using Example.Shared.DL.SQLite;
 using Example.Shared.BL.Contracts;
+using Example.Shared.Entities;
+using System.Threading.Tasks;
 
 /// <summary>
 /// Further implementation where required:
 /// <para/>Seed database - Add a .sqlite seed database if there's pre-configured data the app needs to use. For example, reference data.
 /// <para/>Database upgrade for new app versions, especially schema changes
 /// </summary>
-using Example.Shared.Entities;
-
 
 namespace Example.Shared.DL
 {
@@ -20,9 +20,8 @@ namespace Example.Shared.DL
 	/// It contains methods for retrieval and persistance as well as db creation, all based on the 
 	/// underlying ORM.
 	/// </summary>
-	public class TemplateDatabase : SQLiteConnection
+	public class TemplateAsyncDatabase : SQLiteAsyncConnection
 	{
-		static object locker = new object ();
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="SharedProjectExampley.DL.SharedProjectExampleDatabase"/> SharedProjectExampleDatabase. 
@@ -31,46 +30,37 @@ namespace Example.Shared.DL
 		/// <param name='path'>
 		/// Path.
 		/// </param>
-		public TemplateDatabase (string path) : base (path)
+		public TemplateAsyncDatabase (string path) : base (path)
 		{
 			// create the tables
-			CreateTable<Weather> ();
+			CreateTableAsync<Weather> ();
 		}
 
-		public IEnumerable<T> GetItems<T> () where T : IBusinessEntity, new()
+		public async Task<IEnumerable<T>> GetItems<T> () where T : IBusinessEntity, new()
 		{
-			lock (locker) {
-				return (from i in Table<T> ()
-				        select i).ToList ();
+			return await this.Table<T> ().ToListAsync ();
+		}
+
+		public async Task<T> GetItem<T> (int id) where T : IBusinessEntity, new()
+		{
+			return await Table<T> ().Where (x => x.ID == id).FirstOrDefaultAsync ();
+		}
+
+		public async Task<int> SaveItem<T> (T item) where T : IBusinessEntity
+		{
+			item.LastUpdatedAt = DateTime.Now;
+			if (item.ID != 0) {
+
+				await UpdateAsync (item);
+				return item.ID;
+			} else {
+				return await InsertAsync (item);
 			}
 		}
 
-		public T GetItem<T> (int id) where T : IBusinessEntity, new()
+		public async Task<int> DeleteItem<T> (T item) where T : IBusinessEntity, new()
 		{
-			lock (locker) {
-				return Table<T> ().FirstOrDefault (x => x.ID == id);
-			}
-		}
-
-		public int SaveItem<T> (T item) where T : IBusinessEntity
-		{
-			lock (locker) {
-				item.LastUpdatedAt = DateTime.Now;
-				if (item.ID != 0) {
-
-					Update (item);
-					return item.ID;
-				} else {
-					return Insert (item);
-				}
-			}
-		}
-
-		public int DeleteItem<T> (int id) where T : IBusinessEntity, new()
-		{
-			lock (locker) {
-				return Delete<T> (new T () { ID = id });
-			}
+			return await this.DeleteAsync (item);
 		}
 	}
 }

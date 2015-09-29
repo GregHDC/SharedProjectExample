@@ -19,6 +19,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)DataAccessLayer\TemplateRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataLayer\TemplateDatabase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\Weather.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataLayer\TemplateAsyncDatabase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataAccessLayer\TemplateAsyncRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)BusinessLayer\" />

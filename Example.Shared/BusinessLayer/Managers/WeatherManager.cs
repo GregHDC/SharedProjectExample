@@ -15,18 +15,31 @@ namespace Example.Shared.BL.Managers
 		{
 		}
 
+		/// <summary>
+		/// Gets the updated weather and store it as a new record in the database
+		/// Further implementation to consdier:
+		/// 	- Depends on the scenario, you could choose async or sync database save
+		/// 	- Check last updated date time, prior to web service calls.
+		/// </summary>
+		/// <returns>The updated weather.</returns>
+		/// <param name="uri">URI.</param>
 		public async Task<Weather> GetUpdatedWeather (string uri)
 		{
 			var service = new WeatherService ();
 			var response = await service.FetchWeatherAsync (uri);
-			// save to the db as well
-			TemplateRepository.Save (response);
-			return response;
+
+			// You could choose to save async as well, and return the response object directly to the front-end
+			var savedId = Save (response);
+
+			// this is to demo how to return information from the database
+			return GetWeather (savedId);
 		}
 
-		public static Weather GetCachedLatestWeather ()
+		#region Sync database operation examples
+
+		public static Weather GetWeather (int id)
 		{
-			return TemplateRepository.GetLatestWeather ();
+			return TemplateRepository.GetWeather (id);
 		}
 
 		public static int Save (Weather item)
@@ -38,6 +51,22 @@ namespace Example.Shared.BL.Managers
 		{
 			return TemplateRepository.Delete (id);
 		}
-		
+
+		#endregion
+
+		#region Async database operation examples
+
+		/// <summary>
+		/// Saves an weather item async.
+		/// </summary>
+		/// <returns>The async result ID</returns>
+		/// <param name="item">Item.</param>
+		public static async Task<int> SaveAsync (Weather item)
+		{
+			return await TemplateAsyncRepository.Save (item);
+		}
+
+		#endregion
+
 	}
 }
